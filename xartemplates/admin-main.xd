@@ -1,0 +1,75 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:set name="modInfo">xarModGetInfo(xarModGetIDFromName('html'))</xar:set>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+         <xar:if condition="!xarRequestIsAJAX()">
+             <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+             <xar:mlstring>Overview</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <img src="#xarTplGetImage('admin.png', 'html')#" alt="official icon" class="xar-module-icon" />
+                <h2><xar:mlstring>What is it?</xar:mlstring></h2>
+                    <p>
+                        <xar:mlstring>The HTML module is a utility module that provides a mechanism for setting the HTML tags allowed on your site.
+                        There are also useful hooks providing various transforms in texdt.</xar:mlstring>
+                    </p>
+
+                <h3><xar:mlstring>How to use it?</xar:mlstring></h3>
+                <p>
+                    <xar:mlstring>You can set the allowed HTML tags from the HTML module in the Administration menu.
+                    You can also add new tags, edit current tags and delete tags from the system.</xar:mlstring>
+                </p>
+                <p><strong>NOTE:</strong>&#160; The Allowed HTML is applied globally on your site as soon as the HTML module is installed and activated. You do not have to
+                  hook the HTML module to transform Allowed HTML tags.</p>
+                <p><xar:mlstring>For additional Hook functionality, you will need to hook the HTML module to your module or itemtypes.
+                The included Hooks will transform text according to configuration settings in the Modify Config tab of your HTML module.
+                These configurations can be overridden in individually hooked modules.</xar:mlstring></p>
+                <h3><xar:mlstring>Included Blocks</xar:mlstring></h3>
+                    <p>
+                        <xar:mlstring>There are no included blocks with this module.</xar:mlstring>
+                    </p>
+
+                <h3><xar:mlstring>Included Hooks</xar:mlstring></h3>
+                    <p>
+                        <xar:mlstring>
+                            <strong>
+                             The transform hook only affects linebreaks and not the allowed HTML of the module.
+                             Do not hook this module to another unless you want internal references or linebreaks.
+                            </strong>
+                        </xar:mlstring>
+                    </p>
+                    <p>
+                        <xar:mlstring>Three types of transform hooks are provided. </xar:mlstring>
+                    </p>
+                    <ol>
+                        <li><xar:mlstring>Internal Reference hooks - will transform anchor references in hooked content to standard Xaraya URLs.</xar:mlstring></li>
+                        <li><xar:mlstring>Line break transform - for simply transforming line endings to &gt;br /&lt; . Either use the simple, or smart linebreak transform. This will transform text with linebreaks in the text into html text with &lt;br /&gt; tags.</xar:mlstring></li>
+                        <li><xar:mlstring>Smart Line break transform - for transforming line endings to &gt;br /&lt; tags where HTML is also used in the text.</xar:mlstring></li>
+
+                    </ol>
+
+
+                <h3><xar:mlstring>Further Information</xar:mlstring></h3>
+                <p><xar:mlstring>Further information on the HTML module can be found at</xar:mlstring></p>
+                    <ul>
+                       <li><a title="#xarML('Xarigami HTML Module')#" href="http://xarigami.com/project/xarigami_html">Xarigami HTML Project Page</a>.
+                       </li>
+                       <li><xar:mlstring>Related tutorials and documentation on the Xarigami HTML module can be found at</xar:mlstring> <a href="http://xarigami.com/project/xarigami_html?page=resources" title="#xarML('Related resources on xarigami HTML')#"><xar:mlstring>Xarigami HTML Resources.</xar:mlstring></a>
+                       </li>
+                    </ul>
+
+                <p class="xar-sub">
+                    <xar:ml>
+                        <xar:mlstring>
+                            Overview Revision 1.5.2 2010-01-12 for HTML Module Version #(1)
+                        </xar:mlstring>
+                        <xar:mlvar>#$modInfo.version#</xar:mlvar>
+                    </xar:ml>
+                </p>
+        </div>
+    </div>
+</div>

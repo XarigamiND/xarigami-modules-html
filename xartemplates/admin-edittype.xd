@@ -1,0 +1,40 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+         <xar:if condition="!xarRequestIsAJAX()">
+             <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+             <xar:mlstring>Edit Tag Type</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <form method="post" action="&xar-modurl-html-admin-edittype;" enctype="application/x-www-form-urlencoded">
+
+                   <fieldset>
+                    <legend>
+                        <strong><xar:mlstring>Tag Type Details</xar:mlstring></strong>
+                    </legend>
+                    <div class="xar-form-input-wrapper">
+                        <label for="tagtype" class="xar-form-label" title="#xarML('Tag Type Name')#">
+                            <xar:mlstring>Tag Type:</xar:mlstring>
+                        </label>
+                        <input type="text" name="tagtype" id="tagtype" value="#$type#" size="32" maxlength="100" tabindex="1" />
+                    </div>
+                    </fieldset>
+                    <div class="xar-form-footer">
+                        <input type="submit" value="#$editbutton#"  tabindex="2" />
+                        <input type="hidden" name="authid" value="#$authid#" />
+                        <input type="hidden" name="id" id="id" value="#$id#" />
+                        <input type="hidden" name="confirm" id="confirm" value="1"/>
+                    </div>
+
+                    <p>
+                     <a href="&xar-modurl-html-admin-viewtypes;"><xar:mlstring>Cancel edit</xar:mlstring></a>
+                    </p>
+            </form>
+        </div>
+    </div>
+</div>

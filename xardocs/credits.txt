@@ -1,0 +1,6 @@
+Utility module written by John Cox based on the Autolinks Module written by Jim McDonald.
+
+Updated by Jo Dalle Nogare (jojodee) with internal reference transform hook originally
+ by Jason Judge for xarpages. Updated to make provision for module and itemtype hook awareness.
+ Also added module/itemtype hook awareness for existing page break transforms.
+

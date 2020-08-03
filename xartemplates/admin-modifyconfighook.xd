@@ -1,0 +1,41 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<fieldset class="formelements xar-norm">
+    <legend>
+        <xar:mlstring>HTML Hooks</xar:mlstring>
+    </legend>
+
+    <xar:if condition="xarModGetVar('html','allowhookoverrides')"> 
+        <div class="xar-form-input-wrapper-after">
+            <xar:data-input type="checkbox" name="transformrefs" id="transformrefs" checked="$transformrefs" />    
+            <label for="transformrefs" title="#xarML('Will transform internal references to suitable uris')#">
+                <xar:mlstring>
+                    Transform internal (anchor) references
+                </xar:mlstring>
+            </label>
+        </div>
+
+        <p class="xar-form-input-wrapper-after">
+            <xar:mlstring>You may choose either or both of the following linebreak transforms:</xar:mlstring>
+        </p>
+        <div class="xar-form-input-wrapper-after">
+            <xar:data-input type="checkbox" name="dolinebreak" id="dolinebreak" checked="$dolinebreak" />
+            <label for="dolinebreak" title="#xarML('HTML module will provide smart linebreaks on content.')#">
+            <xar:mlstring>
+                "Smart" Transform (considers html tags)
+            </xar:mlstring>
+            </label>
+        </div>
+        <div class="xar-form-input-wrapper-after">
+            <xar:data-input type="checkbox" name="dobreak" id="dobreak" checked="$dobreak" />    
+            <label for="dobreak" title="#xarML('HTML module will do a simple transform of linebreaks to &lt;br /&gt;')#">
+                <xar:mlstring>
+                    Simple transform of newlines to line breaks &lt;br /&gt;
+                </xar:mlstring>
+            </label>
+        </div>
+     
+   <xar:else />
+       <xar:mlstring>Hook overrides are currrently disabled. They can be enabled in </xar:mlstring>
+       <a href="&xar-modurl-html-admin-modifyconfig;"><xar:mlstring>HTML Modifyconfig</xar:mlstring></a>
+   </xar:if>
+</fieldset>

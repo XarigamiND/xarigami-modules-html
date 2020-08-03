@@ -1,0 +1,54 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:style file="xgamisprites" module="base" scope="module" />
+<xar:set name="delete"><xar:mlstring>Delete</xar:mlstring></xar:set>
+<xar:set name="edit"><xar:mlstring>Edit</xar:mlstring></xar:set>
+<xar:template module="html" file="jq-viewtypes" />
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+         <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+             <xar:mlstring>View Tag Types</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <div class="xar-align-right xar-padding-thickends">
+                <a href="#xarModURL('html','admin','newtype')#" class="esprite xs-add" title="#xarML('Add tag type')#"><xar:mlstring>&#160;Add tag type</xar:mlstring></a>
+            </div>
+            <table class="xar-items">
+                <tr>
+                    <th>
+                         <xar:mlstring>Type</xar:mlstring>
+                    </th>
+                    <th class="xar-align-center">
+                        <xar:mlstring>Options</xar:mlstring>
+                    </th>
+                </tr>
+                <xar:set name="rowclass">'xar-norm'</xar:set>
+                <xar:loop name="$items">
+                    <tr class="#$rowclass# ">
+                        <td class="xar-threequarterswidth">
+                            #$loop:item['type']#
+                        </td>
+                        <td class="xar-item-actions">
+                            <xar:if condition="empty($loop:item['editurl'])">
+                                <span class="esprite xs-modify xar-icon-disabled xar-displayinline "><span>#$edit#</span></span>
+                            <xar:else />
+                                <a class="esprite xs-modify" href="#$loop:item['editurl']#"><span>#$edit#</span></a>
+                            </xar:if>
+                            &#160;|&#160;
+                            <xar:if condition="empty($loop:item['deleteurl'])">
+                                <span class="esprite xs-delete xar-icon-disabled xar-displayinline "><span>#$delete#</span></span>
+                            <xar:else />
+                                    <a class="esprite xs-delete" href="#$loop:item['deleteurl']#" id="delete_#$loop:item['id']#"><span>#$delete#</span></a>
+                            </xar:if>
+                        </td>
+                    </tr>
+                     <xar:set name="rowclass">$rowclass == 'xar-norm' ? 'xar-alt' : 'xar-norm'</xar:set>
+                </xar:loop>
+            </table>
+        </div>
+    </div>
+</div>

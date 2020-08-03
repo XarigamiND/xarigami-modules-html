@@ -1,0 +1,112 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+         <xar:if condition="!xarRequestIsAJAX()">
+             <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+             <xar:mlstring>Modify configuration</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+            <p> <xar:mlstring>The HTML module does not need to be hooked to any other module for your
+                HTML settings to take effect. As soon as the HTML module is installed, your HTML settings
+                will be in effect.
+                </xar:mlstring>
+            </p>
+            <p>
+                <xar:mlstring>If you do want any of the following functionality, then you must </xar:mlstring>
+                    <a href="&xar-modurl-modules-admin-hooks;&amp;hook=html"><xar:mlstring>hook the HTML module</xar:mlstring></a>
+                <xar:mlstring>to the modules where you want that functionality (eg Articles, Comments, etc). Once hooked, the
+                    following features become available in those modules.
+                </xar:mlstring>
+            </p>
+            <form method="post" action="&xar-modurl-html-admin-modifyconfig;" enctype="application/x-www-form-urlencoded" >
+                <fieldset>
+                    <legend>
+                        <strong>
+                            <xar:mlstring>
+                                Reference Transforms
+                            </xar:mlstring>
+                        </strong>
+                    </legend>
+                    <div class="xar-form-input-wrapper-after">
+                        <xar:data-input type="checkbox" name="transformrefs" id="transformrefs" checked="$transformrefs" />
+                        <label for="transformrefs" title="#xarML('Will transform internal references to suitable uris')#">
+                            <xar:mlstring>
+                                Transform internal (anchor) references
+                            </xar:mlstring>
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <strong>
+                            <xar:mlstring>
+                                Line Break Transforms
+                            </xar:mlstring>
+                        </strong>
+                    </legend>
+                    <p class="xar-form-input-wrapper-after">
+                        <xar:mlstring>You may choose either or both of the following linebreak transforms:</xar:mlstring>
+                    </p>
+                    <div class="xar-form-input-wrapper-after">
+                        <xar:data-input type="checkbox" name="dolinebreak" id="dolinebreak" checked="$dolinebreak" />
+                        <label for="dolinebreak" title="#xarML('HTML module will provide smart linebreaks on content.')#">
+                        <xar:mlstring>
+                            "Smart" Transform (considers html tags)
+                        </xar:mlstring>
+                        </label>
+                    </div>
+                    <div class="xar-form-input-wrapper-after">
+                        <xar:data-input type="checkbox" name="dobreak" id="dobreak" checked="$dobreak" />
+                        <label for="dobreak" title="#xarML('HTML module will do a simple transform of linebreaks to &lt;br /&gt;')#">
+                            <xar:mlstring>
+                                Simple transform of newlines to line breaks &lt;br /&gt;
+                            </xar:mlstring>
+                        </label>
+                    </div>
+
+                </fieldset>
+               <fieldset>
+                    <legend>
+                        <strong>
+                            <xar:mlstring>
+                                Hook Overrides
+                            </xar:mlstring>
+                        </strong>
+                    </legend>
+                    <div class="xar-form-input-wrapper-after">
+                        <xar:data-input type="checkbox" name="allowhookoverrides" id="allowhookoverrides" checked="$allowhookoverrides" />
+                        <label for="allowhookoverrides" title="#xarML('Allow hooked modules to override default settings for itemtypes')#">
+                            <xar:mlstring>
+                                Allow hooked modules to override default settings for itemtypes?
+                            </xar:mlstring>
+                        </label>
+                    </div>
+                </fieldset>
+                <xar:if condition="!empty($hooks)">
+                    <fieldset>
+                        <legend>
+                            <strong>
+                                <xar:mlstring>
+                                    Hooked Module Configuration
+                                </xar:mlstring>
+                            </strong>
+                        </legend>
+                        <xar:foreach in="$hooks" key="$hookmodule">
+                            #$hooks[$hookmodule]#
+                        </xar:foreach>
+                    </fieldset>
+                </xar:if>
+                <div class="xar-form-footer">
+                    <input type="hidden" name="authid" id="authid" value="#$authid#" />
+                    <input type="hidden" name="phase" id="phase" value="update" />
+                    <input type="submit" value="#xarML('Submit')#" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
