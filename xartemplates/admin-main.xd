@@ -54,12 +54,9 @@
 
 
                 <h3><xar:mlstring>Further Information</xar:mlstring></h3>
-                <p><xar:mlstring>Further information on the HTML module can be found at</xar:mlstring></p>
                     <ul>
-                       <li><a title="#xarML('Xarigami HTML Module')#" href="http://xarigami.com/project/xarigami_html">Xarigami HTML Project Page</a>.
-                       </li>
-                       <li><xar:mlstring>Related tutorials and documentation on the Xarigami HTML module can be found at</xar:mlstring> <a href="http://xarigami.com/project/xarigami_html?page=resources" title="#xarML('Related resources on xarigami HTML')#"><xar:mlstring>Xarigami HTML Resources.</xar:mlstring></a>
-                       </li>
+                       <li><xar:mlstring>HTML Extension page</xar:mlstring> <xar:mlstring>(there is no project page yet)</xar:mlstring></li>
+                       <li><a href="http://xarigami.org/contrails/displayproject/xhtml"><xar:mlstring>Xarigami HTML issue tracker</xar:mlstring></a></li>
                     </ul>
 
                 <p class="xar-sub">
